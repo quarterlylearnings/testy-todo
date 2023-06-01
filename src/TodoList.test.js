@@ -32,8 +32,8 @@ describe("The Todo list component", () => {
     test("removes a task from the list", () => {
         render(<TodoList />);
 
-        const firstTaskElement = screen.getByText("Scoop litter");
-        const deleteButtonElement = screen.getByRole(
+        const firstTaskElement = screen.getByText("Scoop litter").parentElement;
+        const deleteButtonElement = within(firstTaskElement).getByRole(
             "button",
             { name: /Delete/i }
         );
